@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwqxhisdwulgn"]
+
+[ext_resource type="Script" path="res://scripts/tax_paper.gd" id="1_kvmj4"]
+[ext_resource type="Texture2D" uid="uid://c5uahjuc7lx4h" path="res://sprites/New Piskel.png" id="1_mn3yk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvmj4"]
+size = Vector2(155, 173)
+
+[node name="Tax paper" type="Area2D"]
+script = ExtResource("1_kvmj4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(39.5, 55.5)
+scale = Vector2(1.61719, 1.43359)
+texture = ExtResource("1_mn3yk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(30.5, -32.5)
+shape = SubResource("RectangleShape2D_kvmj4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

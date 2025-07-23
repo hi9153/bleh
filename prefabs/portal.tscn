@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bv62rq3e5bc4u"]
+
+[ext_resource type="Texture2D" uid="uid://h0tx6om6iqyo" path="res://icon.svg" id="1_gbxor"]
+[ext_resource type="Script" path="res://scripts/portal.gd" id="1_y2eew"]
+[ext_resource type="Texture2D" uid="uid://o4ax2whk2b0f" path="res://animations/Dimensional_Portal.png" id="3_srbon"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ooq7"]
+atlas = ExtResource("3_srbon")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqeyo"]
+atlas = ExtResource("3_srbon")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd87k"]
+atlas = ExtResource("3_srbon")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jtqf"]
+atlas = ExtResource("3_srbon")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jon2b"]
+atlas = ExtResource("3_srbon")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4krsa"]
+atlas = ExtResource("3_srbon")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65lri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ooq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqeyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd87k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jtqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jon2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4krsa")
+}],
+"loop": true,
+"name": &"portal",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srbon"]
+radius = 85.0
+height = 296.0
+
+[node name="portal" type="Area2D"]
+position = Vector2(64, 64)
+script = ExtResource("1_y2eew")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_gbxor")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-13.5, 2.5)
+scale = Vector2(12.9063, 9.46875)
+sprite_frames = SubResource("SpriteFrames_65lri")
+animation = &"portal"
+autoplay = "portal"
+frame_progress = 0.536578
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_srbon")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
