@@ -1,11 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://fl1ywadqtcj0"]
+[gd_scene load_steps=13 format=3 uid="uid://fl1ywadqtcj0"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_4dohe"]
 [ext_resource type="Texture2D" uid="uid://ckruvdtdpjg8k" path="res://animations/Newcharacter.png" id="2_yxf6t"]
+[ext_resource type="Texture2D" uid="uid://c6ftxvbbcn23s" path="res://animations/idle).png" id="3_hejku"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rjjp"]
 atlas = ExtResource("2_yxf6t")
 region = Rect2(124, 248, 124, 124)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryjnx"]
+atlas = ExtResource("3_hejku")
+region = Rect2(0, 248, 124, 124)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_owy15"]
 atlas = ExtResource("2_yxf6t")
@@ -37,7 +42,10 @@ animations = [{
 "name": &"fall",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryjnx")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
@@ -72,31 +80,18 @@ animations = [{
 size = Vector2(128, 127)
 
 [node name="player" type="CharacterBody2D"]
-position = Vector2(6273, -13621)
+position = Vector2(6272, -13621)
 script = ExtResource("1_4dohe")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D"]
-offset_left = -94675.0
-offset_top = -47279.0
-offset_right = 127413.0
-offset_bottom = 74242.0
-color = Color(0.662745, 1, 1, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Camera2D"]
-offset_left = -71076.0
-offset_top = -9722.0
-offset_right = 114567.0
-offset_bottom = -26.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3.00019, -2.99988)
-scale = Vector2(1.04839, 0.999994)
+position = Vector2(0.000183105, -0.999872)
+scale = Vector2(1.04839, 1.01612)
 sprite_frames = SubResource("SpriteFrames_0anbp")
-animation = &"idle"
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_fc0e3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
