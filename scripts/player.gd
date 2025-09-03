@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	else:
 		if abs(velocity.x) > 10:
-			anim.play("run")
+			anim.play("move")
 		else:
 			anim.play("idle")
 	if velocity.x < 0:

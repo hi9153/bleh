@@ -189,7 +189,7 @@ tile_map_data = PackedByteArray("AAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAA
 tile_set = SubResource("TileSet_feb5d")
 
 [node name="player" parent="." instance=ExtResource("2_lbhrr")]
-position = Vector2(2061, 855)
+position = Vector2(147, -673)
 
 [node name="portal" parent="." instance=ExtResource("3_iywne")]
 position = Vector2(7203, -4120)
@@ -222,3 +222,5 @@ position = Vector2(4944, -2335)
 
 [node name="house" parent="." instance=ExtResource("8_gee14")]
 position = Vector2(7022, -3761)
+
+[node name="Node2D" type="Node2D" parent="."]
