@@ -41,6 +41,9 @@ func _physics_process(delta: float) -> void:
 		respawn()
 func respawn():
 	position = start_position
+	
+	
+ 
 
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
